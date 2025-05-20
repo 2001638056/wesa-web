@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitNashat | برامج التمرين</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url('images/hero-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f7fa;
+      direction: rtl;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .site-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #00fff2;
+      padding: 30px 0 10px;
+      text-shadow: 0 0 10px #00fff2, 0 0 25px #00fff2;
+    }
+
+    .section-links {
+      width: 100%;
+      background: rgba(10, 10, 26, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 10px;
+      box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 2000;
+    }
+
+    .section-links a {
+      padding: 12px 24px;
+      background: none;
+      color: #ccc;
+      border-radius: 15px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1em;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .section-links a:hover {
+      color: #00ffcc;
+      transform: translateY(-2px);
+    }
+
+    .section-links a.active {
+      background: linear-gradient(to right, #00ffcb, #00f0ff);
+      color: #000;
+      box-shadow: 0 0 20px #00ffee;
+    }
+
+    header {
+      background-color: rgba(17, 17, 17, 0.9);
+      padding: 20px 0;
+      box-shadow: 0 4px 20px rgba(0, 255, 200, 0.3);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      color: #ccc;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      color: #00ffcc;
+      border-bottom: 3px solid #00ffcc;
+      text-shadow: 0 0 8px #00ffcc;
+    }
+
+    main {
+      padding-top: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tab-content {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      margin: 30px 20px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+      animation: fadeIn 0.5s ease-in-out;
+      align-items: flex-start;
+      gap: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-content.active {
+      display: flex !important;
+    }
+
+    .tab-content:nth-of-type(1).active { flex-direction: row; }
+    .tab-content:nth-of-type(2).active { flex-direction: row-reverse; }
+    .tab-content:nth-of-type(3).active { flex-direction: column; align-items: center; }
+
+    .tab-content img {
+      width: 280px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .tab-text {
+      flex: 1;
+      text-align: justify;
+      font-size: 1.05em;
+      line-height: 1.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ إصلاح التنسيق في الشاشات الصغيرة */
+    @media (max-width: 767px) {
+      .tab-content {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: justify !important;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .tab-content img {
+        width: 100%;
+        height: auto;
+      }
+
+      .tab-text {
+        font-size: 1em;
+        padding: 0 10px;
+        word-wrap: break-word;
+        word-break: break-word;
+        text-align: justify !important;
+      }
+
+      .tab-button {
+        font-size: 1em;
+        padding: 10px 16px;
+      }
+
+      .section-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-links a {
+        font-size: 0.95em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="site-title">🏋️‍♂️ GlowFit</div>
+
+    <div class="section-links">
+      <a href="index.html">🏠 الصفحة الرئيسية</a>
+      <a href="programs.html" class="active">برامج التمرين</a>
+      <a href="nutrition.html">النصائح الغذائية</a>
+      <a href="goals.html">أهداف اللياقة</a>
+      <a href="tips.html">نصائح عامة</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="program-details.html">تفاصيل البرامج</a>
+      <a href="nutrition-details.html">تفاصيل التغذية</a>
+    </div>
+
+    <header>
+      <button class="tab-button active" onclick="showTab(0)">تمارين القوة</button>
+      <button class="tab-button" onclick="showTab(1)">تمارين الكارديو</button>
+      <button class="tab-button" onclick="showTab(2)">تمارين المرونة</button>
+    </header>
+
+    <main>
+      <div class="tab-content active">
+        <img src="images/strength.jpg" alt="تمارين القوة" />
+        <div class="tab-text">
+          <p>تركز تمارين القوة على بناء الكتلة العضلية وزيادة قدرة الجسم على التحمل. تشمل هذه التمارين رفع الأثقال، تمارين المقاومة، واستخدام الأوزان الحرة. تساعد على تحسين الكثافة العضلية، تقوية المفاصل، وزيادة معدل الأيض.</p>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <img src="images/cardio.jpg" alt="تمارين الكارديو" />
+        <div class="tab-text">
+          <p>تهدف تمارين الكارديو إلى تحسين صحة القلب والأوعية الدموية، حرق الدهون، وزيادة اللياقة العامة. تشمل الجري، القفز، ركوب الدراجة، والرقص الرياضي. يُنصح بها لزيادة الطاقة وتعزيز صحة الجهاز التنفسي.</p>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <img src="images/flexibility.jpg" alt="تمارين المرونة" style="margin: auto;" />
+        <div class="tab-text" style="margin-top: 20px;">
+          <p>تساعد تمارين المرونة على تحسين حركة المفاصل، تقليل التصلب العضلي، والوقاية من الإصابات. تتضمن تمارين التمدد، اليوغا، والتمارين الديناميكية. تلعب دورًا مهمًا في تحقيق توازن بدني وشعور عام بالراحة.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      contents.forEach((c, i) => {
+        c.classList.toggle('active', i === index);
+        buttons[i].classList.toggle('active', i === index);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitNashat | تفاصيل البرامج</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+    body {
+      background: url('images/hero-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      direction: rtl;
+      color: #f5f7fa;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .site-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #00fff2;
+      padding: 30px 0 10px;
+      text-shadow: 0 0 10px #00fff2, 0 0 25px #00fff2;
+    }
+
+    .section-links {
+      width: 100%;
+      background: rgba(13, 17, 28, 0.95);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .section-links a {
+      position: relative;
+      padding: 12px 24px;
+      color: #ccc;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      transition: color 0.3s ease;
+      z-index: 1;
+    }
+
+    .section-links a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #00f0ff, #00ffc3);
+      border-radius: 10px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+      z-index: -1;
+    }
+
+    .section-links a:hover::before,
+    .section-links a.active::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .section-links a:hover,
+    .section-links a.active {
+      color: #000;
+    }
+
+    header {
+      background-color: rgba(18, 26, 46, 0.95);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 200, 0.15);
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      color: #a8c4ff;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      color: #00fff2;
+      border-bottom: 3px solid #00fff2;
+      text-shadow: 0 0 10px #00fff2;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tab-content {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      margin-bottom: 30px;
+      animation: fadeIn 0.6s ease;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .tab-content.active { display: flex !important; }
+
+    .tab-content:nth-of-type(1).active { flex-direction: row; }
+    .tab-content:nth-of-type(2).active { flex-direction: row-reverse; }
+    .tab-content:nth-of-type(3).active { flex-direction: column; align-items: center; text-align: center; }
+
+    .tab-content img {
+      width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .tab-text {
+      flex: 1;
+      text-align: justify;
+      font-size: 1.05em;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 767px) {
+      .tab-content {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+      }
+
+      .tab-content img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .tab-text {
+        text-align: justify;
+        padding: 0 10px;
+        word-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .tab-button {
+        font-size: 1em;
+        padding: 10px 16px;
+      }
+
+      .site-title {
+        font-size: 2em;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="site-title">🧐 GlowFit</div>
+
+    <div class="section-links">
+      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="programs.html">برامج التمرين</a>
+      <a href="nutrition.html">النصائح الغذائية</a>
+      <a href="goals.html">أهداف اللياقة</a>
+      <a href="tips.html">نصائح عامة</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="program-details.html" class="active">تفاصيل البرامج</a>
+      <a href="nutrition-details.html">تفاصيل التغذية</a>
+    </div>
+
+    <header>
+      <button class="tab-button active" onclick="showTab(0)">كيفية أداء التمارين</button>
+      <button class="tab-button" onclick="showTab(1)">عدد المرات الموصى بها</button>
+      <button class="tab-button" onclick="showTab(2)">الفوائد الصحية</button>
+    </header>
+
+    <main>
+      <div class="tab-content active">
+        <img src="images/exercise-guide.jpg" alt="كيفية أداء التمارين" />
+        <div class="tab-text">
+          <p>لأداء التمارين بشكل صحيح، تأكد من الإحماء أولًا لمدة 5-10 دقائق. ابدأ بالتمارين البسيطة مثل القرفصاء، الضغط، وتمارين الكتف بأوزان خفيفة.</p>
+          <p>ركز على الشكل الصحيح للحركة أكثر من الوزن، وابقَ في نطاق حركة مريح دون شد مفرط.</p>
+          <p>التنفس المنتظم والوقوف الثابت أساسيان لتحقيق التوازن أثناء الأداء.</p>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <img src="images/frequency.jpg" alt="عدد المرات الموصى بها" />
+        <div class="tab-text">
+          <p>ينصح بممارسة التمارين 3 إلى 5 مرات أسبوعيًا حسب هدفك ولياقتك. لزيادة الكتلة العضلية، مارس تمارين القوة 3 مرات في الأسبوع مع يوم راحة بين كل جلسة.</p>
+          <p>لخسارة الوزن أو تحسين اللياقة العامة، يمكن دمج تمارين الكارديو مثل الجري والسباحة 4-5 مرات أسبوعيًا مع تمارين المقاومة.</p>
+          <p>لا تنسَ الراحة والنوم الكافي لأن الجسم يبني نفسه ويستعيد طاقته خلال فترات الاسترخاء.</p>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <img src="images/health-benefits.jpg" alt="الفوائد الصحية" />
+        <div class="tab-text">
+          <p>ممارسة التمارين الرياضية بانتظام تعزز صحة القلب والأوعية الدموية، وتحسن المزاج وتقلل التوتر بفضل إفراز الإندورفين.</p>
+          <p>تساعد على التحكم في الوزن، زيادة طاقة الجسم، وتعزيز النوم العميق.</p>
+          <p>كما تسهم في الوقاية من الأمراض المزمنة مثل السكري وارتفاع ضغط الدم، وتمنحك ثقة أكبر وشعورًا بالإيجابية.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      contents.forEach((c, i) => {
+        c.classList.remove('active');
+        buttons[i].classList.remove('active');
+      });
+      contents[index].classList.add('active');
+      buttons[index].classList.add('active');
+    }
+  </script>
+</body>
+</html>

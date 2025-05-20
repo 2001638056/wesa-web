@@ -1,0 +1,379 @@
+/* ✅ CSS موحد لواجهة موقع FitNashat */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #f5f7fa;
+  direction: rtl;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+}
+
+/* ✅ اسم الموقع */
+.site-title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 25px 0 15px;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #00fff2;
+  background: rgba(10, 15, 26, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+  z-index: 3000;
+  text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2;
+}
+
+/* ✅ شريط الروابط العلوي */
+.section-links {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  background: #0d111c;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+}
+
+.section-links a {
+  padding: 12px 24px;
+  background: none;
+  color: #bbb;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.section-links a.active {
+  background: linear-gradient(to right, #00f0ff, #00ffc3);
+  color: #000;
+  box-shadow: 0 0 15px #00ffee;
+}
+
+.section-links a:hover {
+  color: #00fff2;
+}
+
+/* ✅ رأس الصفحة */
+header {
+  background-color: #121a2e;
+  padding: 20px 0;
+  margin-top: 145px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.15);
+}
+
+/* ✅ أزرار التبويبات */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #a8c4ff;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  color: #00fff2;
+  border-bottom: 3px solid #00fff2;
+  text-shadow: 0 0 10px #00fff2;
+}
+
+/* ✅ محتوى التبويبات */
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.tab-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  margin-bottom: 30px;
+  animation: fadeIn 0.6s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.tab-content img,
+.tab-content video {
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.tab-text {
+  flex: 1;
+  text-align: justify;
+  font-size: 1.05em;
+  line-height: 1.9;
+}
+
+.tab-content.active {
+  display: flex !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ الهاتف */
+@media (max-width: 767px) {
+  .section-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-content {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .tab-content img,
+  .tab-content video {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tab-text {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tab-button {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  .site-title {
+    font-size: 2em;
+  }
+}
+
+/* ✅ الآيباد */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-content {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .tab-content img,
+  .tab-content video {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tab-text {
+    padding: 0 20px;
+  }
+
+  .navbar {
+    gap: 30px;
+  }
+
+  .tab-button {
+    font-size: 1.05em;
+  }
+}
+
+/* ✅ تنسيقات صفحة تسجيل الدخول وإنشاء الحساب */
+.container {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  animation: showUp 1s ease-in-out forwards;
+  transform-origin: center;
+  opacity: 0;
+}
+
+@keyframes showUp {
+  0% {
+    transform: scale(0.8) rotateX(30deg) translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateX(0deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+.form-box h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-size: 2em;
+  text-shadow: 0 0 10px cyan;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-field input::placeholder {
+  color: #ccc;
+}
+
+.input-field input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px #00ffff;
+}
+
+.form-box p {
+  color: #ddd;
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-box a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.btn-field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn-field button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #00f0ff, #00ffcb);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00ffee;
+}
+
+.btn-field button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffee, 0 0 20px #00ffee;
+}
+
+.disable {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  box-shadow: none;
+}
+@media (max-width: 767px) {
+  .tab-content {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .tab-content img,
+  .tab-content video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 15px;
+  }
+
+  .tab-text {
+    font-size: 1em;
+    line-height: 1.8;
+    padding: 0 10px;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .site-title {
+    font-size: 1.7em;
+    padding: 20px 0;
+  }
+
+  .section-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .section-links a {
+    font-size: 0.95em;
+    padding: 10px 16px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .tab-button {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+}
